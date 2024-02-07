@@ -1,0 +1,348 @@
+@charset  "utf-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+a{text-decoration: none; color: inherit;}
+ul,li,ol{list-style: none;}
+
+body{
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    font-family: "돋움";
+}
+
+#wrap{}
+.up{
+    /* 400+250 */
+    height: 650px;
+    background-color: #e7e7e7;
+    display: flex;
+}
+.side{
+    width: 200px;
+    height: 650px;
+}
+
+.logo{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo a{
+    /* 277*100 */
+    display: block;
+    width: 100%;
+    height: 100px;
+    background-image: url(../img/logo.png);
+    background-size: contain;
+    /* background-size: cover; */
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+
+
+
+.nav{
+    width: 150px; 
+    margin: 30px auto 0;
+}
+.main{}
+.main > li{margin-bottom: 1px;}
+.main > li > a{
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #bebebe;
+    text-align: center;
+    transition: all 0.5s;
+}
+.main > li:hover > a{
+    background-color: #333;
+}
+
+.sub{display: none;}
+.sub li{}
+.sub li a{
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    background-color: rgba(0,0,0,.2);
+
+}
+.sub li a:hover{
+    background-color: #333;
+    color: #fff;
+}
+
+.section{
+    width: calc(100% - 200px);
+    height: 650px;
+    background-color: rgb(240, 240, 240);
+}
+
+.container{
+    height: 400px;
+    background-color: aliceblue;
+    display: flex;
+
+}
+.viewer{
+    width: calc(100% - 230px);
+    height: 400px;
+    overflow: hidden;
+    /* 슬라이드프레임 완성 후에는 오버플로우 히든 걸어주기 */
+    position: relative;
+}
+.left_move{
+    width: 300%;
+    /* 퍼센트비율을 부모로부터 가져옴. 이미지3장..300퍼*/
+    height: 400px;
+    position: absolute;
+    left: 0; top: 0;
+}
+.left_move div{
+    width:calc(100% / 3);
+    height: 400px;
+    float: left;
+}
+.left_move div a{
+    display: block;
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position:  center top;
+
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 400px;
+    text-shadow: 5px 5px 3px rgb(238, 255, 0);
+}
+.left_move div:nth-child(1) a{
+    background-image: url(../img/main1.jpg);
+}
+.left_move div:nth-child(2) a{
+    background-image: url(../img/main2.png);
+}
+.left_move div:nth-child(3) a{
+    background-image: url(../img/main3.jpg);
+}
+
+.banner{
+    width: 230px;
+    height: 400px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner_inner{
+    width: 80%;
+    height: 90%;
+}
+.banner_inner .b_1{display: block; text-align: center;}
+.banner_inner h3{font-size: 12px; margin: 10px;}
+.banner_inner p{font-size: 10px; margin: 10px 0; line-height: 1.7; text-align: justify;}
+.banner_inner .b_btn{
+    text-align: right;
+    display: block;
+}
+
+.contents{
+    height: 250px;
+    display: flex;
+}
+.notice{
+    width: 50%;
+    height: 250px;
+    background-color: #d4c3c3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.noti_inner{
+    width: 95%;
+    height: 90%;
+    border: 1px solid black;
+    position: relative;  
+    /* background-color: #fff; */
+}
+.noti_inner h2{
+    font-size: 16px;
+    height: 35px;
+    line-height: 35px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    border-bottom-color:#fff;
+    position: absolute;
+    top: 0px;   left: 0;
+    z-index:5 ;
+    background-color: #fff;
+}
+.noti_inner ul{
+    position: absolute;
+    top: 34px;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: calc(100% - 34px); /* 테두리: -1px */
+    padding: 0 20px; /* 패딩으로 좌우간격 */
+}
+.noti_inner ul li{
+    display: flex;
+    border-bottom: 1px dashed gray;
+}
+.noti_inner ul li a{
+    flex: 8;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.noti_inner ul li span{
+    flex: 2;
+    text-align: center;
+}
+
+.gallery{
+    width: 50%;
+    height: 250px;
+    background-color: #bebebe;
+    display: flex;
+}
+.gall_inner{
+    width: 90%;
+    border: 1px solid black;
+    display: flex;
+    position: relative;
+}
+.gall_inner h2{
+    font-size: 16px;
+    height: 35px;
+    line-height: 35px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    border-bottom-color:#fff;
+    position: absolute;
+    top: 0px;   left: 0;
+    z-index:5 ;
+    background-color: #fff;
+}
+.gall_inner ul{
+    position: absolute;
+    top: 34px;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: calc(100% - 34px); /* 테두리: -1px */
+    padding: 0 20px; /* 패딩으로 좌우간격 */
+    align-items: center;
+}
+.gall_inner ul li{
+    text-align: center;
+    max-width: 180px;
+    width: auto;
+}
+.gall_inner ul li a{}
+.gall_inner ul li a img{width: 80%;}
+.gall_inner ul li a span{font-size: 10px;
+font-weight: 12px;
+font-weight: 600;}
+
+
+
+.footer{
+    height: 100px;
+    background-color: #c7c7c7;
+    display: flex;
+}
+.f_logo{
+    width: 200px;
+    height: 100px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.f_logo img{
+    width: 90%;
+    filter: grayscale();
+}
+.f_lorem{
+    height: 100px;
+    width: calc(100% - 200px - 230px);
+    font-size: 14px; 
+    text-align: center;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+.family{
+    width: 230px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.family #family{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+
+.modal{width: 100vw; height: 100vh; background-color: rgba(0,0,0,.5); position: absolute; left: 0; top: 0; z-index: 100;}
+/* 모달레이어: 스크립트에서도 안보이게가능 */
+
+.pop{
+    width: 600px;
+    height: 600px;
+    background-color: #fff;
+    border: 10px groove hotpink;
+    position: absolute;
+    left: 50%; top: 50%;
+    margin-left: -300px;
+    margin-top: -300px;
+    z-index: 101;
+    padding: 30px;
+    text-align: center;
+}
+
+.pop h3{
+    font-size: 20px;
+    line-height: 50px;
+    border: 5px double gold;
+}
+.pop p{
+    line-height: 2;
+    margin-top: 20px;
+}
+.pop .close{
+    position: absolute;
+    right: 20px; bottom: 20px;
+    padding: 10px 20px; 
+    cursor: pointer;
+}
+
+
+
+

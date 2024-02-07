@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #596778;
+            /* color: #eee; */
+            text-align: center;
+        }
+
+        body svg{
+            width: 30px;
+            height: 30px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .menu {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            font-size: 26px;
+            width: 80px;
+            height: 80px;
+
+        }
+
+        .menu-open-button,
+        .menu-item {
+            background-color: #eee;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            margin-left: -40px;
+            line-height: 80px;
+        }
+
+        .lines {
+            width: 26px;
+            height: 4px;
+            background-color: #596778;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -13px;
+            margin-top: -2px;
+            transition: all 0.2s;
+
+        }
+
+        .line-1 {
+            transform: translateY(-10px);
+        }
+
+        .line-2 {}
+
+        .line-3 {
+            transform: translateY(10px);
+        }
+    .menu-open{
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+    .menu-open:checked + .menu-open-button .line-1{
+        transform: translate(0) rotate(45deg);
+    }
+    .menu-open:checked + .menu-open-button .line-2{
+        transform: scale(0);
+    }
+
+    .menu-open:checked + .menu-open-button .line-3{
+        transform: translate(0) rotate(-45deg);
+    }
+
+        .menu-item {
+            /* display: none; */
+        }
+
+        .menu-item:nth-child(3){ transition-duration: 180ms;}
+        .menu-item:nth-child(4){transition-duration: 180ms;}
+        .menu-item:nth-child(5){transition-duration: 180ms;}
+        .menu-item:nth-child(6){transition-duration: 180ms;}
+        .menu-item:nth-child(7){transition-duration: 180ms;}
+        .menu-item:nth-child(8){transition-duration: 180ms;}
+
+        .menu-open:checked ~ .menu-item{}
+        .menu-open:checked ~ .menu-item:nth-child(3){
+            transform: translate(1px, -105px) rotate(360deg);
+            transition-duration: 180ms;
+        }
+
+        .menu-open:checked ~ .menu-item:nth-child(4){
+            transform: translate(90px, -50px);
+            transition-duration: 280ms;
+        }
+        .menu-open:checked ~ .menu-item:nth-child(5){
+            transform: translate(90px, 50px);
+            transition-duration: 380ms;
+        }
+
+        .menu-open:checked ~ .menu-item:nth-child(6){
+            transform: translate(1px, 105px);
+            transition-duration: 480ms;
+        }
+
+        .menu-open:checked ~ .menu-item:nth-child(7){
+            transform: translate(-90px, 50px);
+            transition-duration: 580ms;
+        }
+        .menu-open:checked ~ .menu-item:nth-child(8){
+            transform: translate(-90px, -50px);
+            transition-duration: 680ms;
+        }
+
+        .menu-item:hover{
+            background-color: #eee;
+            color: #2390b1;
+        }
+        .blue{
+            background-color: blue;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+        .green{
+            background-color: green;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+        .red{
+            background-color: red;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+        .purple{
+            background-color: purple;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+        .orange{
+            background-color: orange;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+        .lightblue{background-color: lightblue;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);}
+
+        .menu-open-button{
+            z-index: 2;
+            cursor: pointer;
+            transform: scale(1);
+            transition: all 400ms;
+        }
+
+        .menu-open:checked + .menu-open-button{
+            transform: scale(0.8);
+            box-shadow: 3px 3px 0 rgba(0,0,0,.2);
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="menu">
+        <input type="checkbox" class="menu-open" name="menu-open" id="menu-open">
+        <label for="menu-open" class="menu-open-button">
+            <span class="lines line-1"></span>
+            <span class="lines line-2"></span>
+            <span class="lines line-3"></span>
+        </label>
+
+        <a href="#" class="menu-item blue"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+        </a>
+        <a href="#" class="menu-item green">2</a>
+        <a href="#" class="menu-item red">3</a>
+        <a href="#" class="menu-item purple">4</a>
+        <a href="#" class="menu-item orange">5</a>
+        <a href="#" class="menu-item lightblue">6</a>
+    </nav>
+
+</body>
+
+</html>
